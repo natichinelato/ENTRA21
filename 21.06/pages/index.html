@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../scripts/typescript/21.06/calculo.js"></script>
+</head>
+<body>
+    <input type="number" id="n1" placeholder="informe número"/>
+    <input type="number" id="n2" placeholder="informe número"/>
+    <input type="checkbox" id="soma">
+    <label>Somar</label>
+    <input type="checkbox" id="divi">
+    <label>Dividir</label>
+    <input type="checkbox" id="sub">
+    <label>Subtrair</label>
+    <input type="checkbox" id="multi">
+    <label>Multiplicar</label>
+    
+    <button onclick="calcular()">Calcular</button>
+
+    <script>
+        function calcular(){
+            if(document.getElementById("soma").checked){
+            var n1 = parseInt(document.getElementById("n1").value)   
+            var n2 = parseInt(document.getElementById("n2").value)  
+            var retorno = somando(n1,n2)
+            alert(retorno)
+        }else if(document.getElementById("sub").checked){
+            var n1 = parseInt(document.getElementById("n1").value)   
+            var n2 = parseInt(document.getElementById("n2").value)  
+            var retorno = subtrair(n1,n2)
+            alert(retorno)   
+        
+       }else if(document.getElementById("divi").checked){
+            var n1 = parseInt(document.getElementById("n1").value)   
+            var n2 = parseInt(document.getElementById("n2").value)  
+            var retorno = divi(n1,n2)
+            alert(retorno)   
+        
+        }else if(document.getElementById("multi").checked){
+            var n1 = parseInt(document.getElementById("n1").value)   
+            var n2 = parseInt(document.getElementById("n2").value)  
+            var retorno= multi(n1,n2)
+            alert(retorno)   
+        }
+    }
+    </script>
+</body>
+</html>
