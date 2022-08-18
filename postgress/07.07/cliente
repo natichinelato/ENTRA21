@@ -1,0 +1,10 @@
+create table categoria (
+	id serial primary key,
+	cliente varchar (20)
+
+);
+
+insert into categoria (cliente)values ('ana');
+
+
+select * from categoria;

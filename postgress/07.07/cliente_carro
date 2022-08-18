@@ -1,0 +1,22 @@
+create table cliente_carro (
+	cliente_id int,
+	carro_id int,
+	foreign key (cliente_id) references categoria(id),
+	foreign key (carro_id) references carro(id)
+);
+
+insert into cliente_carro(cliente_id, carro_id)values(1,3);
+insert into cliente_carro(cliente_id, carro_id)values(1,1);
+insert into cliente_carro(cliente_id, carro_id)values(2,3);
+insert into cliente_carro(cliente_id, carro_id)values(4,8);
+
+select cc.cliente_id, ca.marca, ca.modelo, ca.ano
+from cliente_carro cc, carro ca
+where cc.carro_id =ca.id
+and cc.cliente_id=4
+
+select cl.cliente, ca.marca, ca.modelo, ca.ano
+from cliente_carro cc, carro ca, categoria cl
+where cc.carro_id =ca.id
+and cc.cliente_id= cl.id
+and ca.modelo like '%c%'
