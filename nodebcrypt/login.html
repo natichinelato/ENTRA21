@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jwtdecode.js"></script>
+</head>
+<body>
+    
+    <div>
+        <label>Email</label>
+        <input type="text" placeholder="informe o email" id="email"/>
+        <label>Senha</label>
+        <input type="password" placeholder="informe senha" id="senha"/>
+        <button onclick="logar()">Login</button>
+        <button onclick="decodificar()">Decodificar</button>
+    </div>
+
+    <p id='nome'></p>
+    <p id='email'></p>
+    <p id='perfil'></p>
+
+    <script>
+        function logar(){
+            var user = {
+                email: document.getElementById('email').value,
+                senha: document.getElementById('senha').value
+            }
+            
+            
+          fetch('http://localhost:8080/usuario/login',
+          {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(user)
+          })
+          .then(data => data.json())
+          .then(result => localStorage.setItem('token', result.token))
+        }
+        function decodificar(){
+            var tokendecodificado = jwt_decode(localStorage.getItem('token'))
+            var string = JSON.stringify(tokendecodificado)
+            console.log(tokendecodificado)
+
+            document.getElementById('nome').innerHTML = tokendecodificado.nome
+            document.getElementById('email').innerHTML = tokendecodificado.email
+            document.getElementById('perfil').innerHTML = tokendecodificado.perfil
+        }
+    </script>
+</body>
+</html> 
