@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
-            <Text> Tela Home</Text>
+            <Text style={styles.msgs}> Tela Home</Text>
         </View>
     )
 }
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     container: {
         marginVertical: 10,
         padding: 10,
-        backgroundColor: 'blue'
+        backgroundColor: 'coral'
       },
       button: {
         alignItems: "center",
@@ -28,8 +28,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         marginVertical:10
     },
-    title:{
-        color: 'red',
-        FontSize: 14
+    msgs:{
+        color: 'white',
+        fontSize: 30,
+        textAlign: 'center'
     }
 })

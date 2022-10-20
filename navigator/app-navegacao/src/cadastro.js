@@ -15,10 +15,33 @@ export default function Cadastro() {
             email: email, 
             fone: fone
         }
-        console.warn(contato)
+        save(contato)
         setMsg('')
     }
 }
+
+function save(obj) {
+    fetch('http://localhost:3000/contatos',
+        {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json', 'content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+                
+            })
+        
+    
+    .then(() => {setMsg("Registro inserido com sucesso!!")})
+    .then(() => {
+        setNome('')
+        setEmail('')
+        setFone('')
+        
+})
+     .catch((erro) => setMsg(`Registro não incluido. Erro: ${erro}`))
+}
+
   function dadosValidos(){
     if(nome == ''){
         setMsg('O nome deve ser preenchido')
@@ -62,7 +85,7 @@ export default function Cadastro() {
            >
              <Text>Gravar</Text>
             </TouchableOpacity>
-           
+           {(msg.search('Registro')> -1)?<Text style={styles.msgs}>{msg}</Text>:''}
         </View>
     )
 }
@@ -87,6 +110,11 @@ const styles = StyleSheet.create({
         marginVertical:10
     },
     title:{
+        color: 'white',
+        fontSize: 30,
+        textAlign: 'center'
+    },
+    msgs:{
         color: 'white',
         fontSize: 30,
         textAlign: 'center'
