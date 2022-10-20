@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        iframe{
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <a href="cadastro.html" target="centro">Cadastro</a>
+    <a href="consulta.html" target="centro">Consulta</a>
+    <button id="bt">Login</button>
+    <label id="userconectado"></label>
+
+    <iframe src="login.html" name="centro"></iframe>
+    <script>
+        if(localStorage.getItem("usuariologado") != null){
+            document.getElementById("userconectado").innerHTML = localStorage.getItem("usuariologado")
+       
+            document.getElementById("bt").innerHTML = "Logout"
+            document.getElementById("bt").addEventListener("click", logout)
+            showitens("inline-block") 
+        }else{
+            showitens("none") 
+            document.getElementById("bt").addEventListener("click", login)
+        }
+        function login(){
+            document.getElementsByTagName("iframe")[0].src="login.html"
+        }
+        function logout(){
+            localStorage.removeItem("usuariologado")
+            window.location.reload()
+        }
+        function showitens(mostrar){
+            document.getElementsByTagName("a")[0].style = `display:${mostrar}`
+            document.getElementsByTagName("a")[1].style = `display:${mostrar}`
+        }
+    </script>
+</body>
+</html>

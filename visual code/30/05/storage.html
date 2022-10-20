@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="email" placeholder="Informe seu email"/>
+        <input type="password" placeholder="digite sua senha"/>
+    </div>
+    <button onclick="login()">Gravar</button>
+    <script>
+        function login(){
+            localStorage.setItem("nome", document.getElementsByTagName("input")[0].value)
+        }
+    </script>
+</body>
+</html>

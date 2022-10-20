@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="numero" type="number" placeholder="Informe um número" /> <br>
+       
+    <button onclick="calcular()">Calcular</button>
+    
+   
+    <script>
+        function calcular(){
+            var numero=0
+            numero = document.getElementById("numero").value
+
+            var fatorial = numero
+            while(numero> 1){
+                numero--
+                fatorial = fatorial*numero
+                    console.log(`${numero} ${fatorial}`)
+            }
+           
+           alert(fatorial)
+        }
+            </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="nome" type="text" placeholder="digite seu nome" /> <br>
+    <input id="n1" type="number" placeholder="sua nota 1" /> <br>
+    <input id="n2" type="number" placeholder="sua nota 2" /> <br>
+    <input id="n3" type="number" placeholder="sua nota 3" /> <br>
+   
+
+    <button onclick="calcular()">Calcular</button>
+    <hr>
+    <p id="resultado"></p>
+    <script>
+        function calcular(){
+           var nome = (document.getElementById("nome").value)
+           var n1 = parseFloat(document.getElementById("n1").value)
+           var n2 = parseFloat(document.getElementById("n2").value)
+           var n3 = parseFloat(document.getElementById("n3").value)
+
+           var media = (n1+n2+n3)/3
+
+           
+           var situacao = "aprovado"
+            if(media < 7){
+                situacao = "reprovado"
+            }
+
+         
+        document.getElementById("resultado").innerHTML = `${nome} sua média é ${media.toFixed(2)}, sua situação é ${situacao}`
+    
+
+}
+  </script>              
+</body>
+</html>

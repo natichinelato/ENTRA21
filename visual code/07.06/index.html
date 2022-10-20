@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .mostrador{
+        width: auto;
+        height: 100%;
+        margin: auto;
+        padding: 30px;
+        background-color: coral;
+        border-radius: 10px;
+                   
+    }
+    input{
+        width: 100%;
+    }
+    h1{
+        display: auto;
+        align-items: center;
+        font-style: italic;
+        text-shadow: 0 0 6px black;
+    }
+    label{
+        font-style: italic;
+    }
+    button{
+        height: 30px;
+        width:100px;
+    background-color: black;
+    font-style: italic;
+    color: white;
+    border-radius: 10px;
+
+    }
+    iframe{
+        width: 100vw;
+    height: 80vw;
+    border: 0px;
+    }
+    </style>
+</head>
+<body>
+    <div class="mostrador">
+    <h1> Consulta clientes e produtos</h1>
+        <nav>
+                <a href="home.html" target="centro">Home</a>
+                <a href="clientes.html" target="centro">Cadastro</a>
+                <a href="produtos.html" target="centro">Produtos</a>
+                <button id="bt">Login</button>
+                <label id="userconectado"></label>
+            
+        </nav>
+       
+    </div>
+    <iframe src="home.html" name="centro"></iframe>
+</body>
+</html>

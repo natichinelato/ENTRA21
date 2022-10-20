@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 400px;
+            margin: auto;
+        }
+
+        input{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+   
+
+     <div class="container">
+
+     <label>Descrição</label>
+     <input type="text" id="descrição" placeholder="Informe descrição">
+
+    <label>Preço</label>
+    <input type="number" id="preco" placeholder="Informe preço">
+
+    <label>Estoque</label>
+    <input type="number" id="estoque" placeholder="Informe estoque">
+    <div>
+        <button onclick="comomostrar()">Salvar</button>
+        <button onclick="limpar()">Limpar</button>
+        <label>Tabela?</label>
+        <input onclick="comomostrar2()" id="showlinha" type="checkbox"></input>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+            </tr>
+        </thead>
+        <tbody id="dados">
+        
+        </tbody>
+        
+        </table>
+        <div id=paragrafo></div>
+   
+</div>
+<script>
+    var produtos=[]
+    function comomostrar2(){
+                if(document.getElementById("showlinha").checked){
+               
+                document.getElementById("paragrafo").style = "display:none"
+                document.getElementsByTagName("table")[0].style = "display:block"
+                tabela()
+            } else{
+                
+                document.getElementById("paragrafo").style = "display:block"
+                document.getElementsByTagName("table")[0].style= "display:none"
+                paragrafo()
+            }
+        }
+    function comomostrar(){
+                if(document.getElementById("showlinha").checked){
+                add(tabela)
+                document.getElementById("paragrafo").style = "display:none"
+                document.getElementsByTagName("table")[0].style = "display:block"
+            } else{
+                add(paragrafo)
+                document.getElementById("paragrafo").style = "display:block"
+                document.getElementsByTagName("table")[0].style= "display:none"
+            }
+        }
+
+            function add(callback){
+        
+        var obj= {
+            descrição: document.getElementById("descrição").value,
+            preco: document.getElementById("preco").value,
+            estoque: document.getElementById("estoque").value
+        }
+
+        if(obj.descrição == ""){
+                alert("informe produto")
+                document.getElementById("descrição").focus()  
+                return              
+             
+            }
+            if(obj.preco == ""){
+                alert("informe preço")
+                document.getElementById("preco").focus()  
+                return              
+            }
+            else{
+               preco = parseFloat(preco)  
+            }
+            if(obj.estoque == ""){
+                alert("informe estoque")
+                document.getElementById("estoque").focus()  
+                return              
+            }
+            else{
+               estoque = parseFloat(estoque)  
+            
+            }
+            
+           produtos.push(obj)
+           console.log(produtos)
+           limpar()
+           callback()
+            
+        }
+        function tabela(){
+            var linhas = ""
+            for(let i=0; i < produtos.length; i++){
+                linhas += 
+                    `<tr><td>${produtos[i].descrição}</td>
+                    <td>${produtos[i].preco}</td>
+                    <td>${produtos[i].estoque}</td></tr>`
+                   
+            }
+        console.log(linhas)
+        document.getElementById("dados").innerHTML = linhas;
+
+        }
+           function paragrafo(){
+            var linhas = ''
+            for(let i=0; i < produtos.length; i++){
+                linhas += `
+                    <p>${produtos[i].descrição} ${produtos[i].preco}   ${produtos[i].estoque}
+                    </p>
+                    `
+            }
+        
+        document.getElementById("paragrafo").innerHTML = linhas;
+
+        }
+        
+        
+ 
+        function limpar(){
+           document.getElementById("descrição").value = ""
+            document.getElementById("preco").value = ""
+            document.getElementById("estoque").value = ""
+         
+        }
+
+        
+</script>
+</html>
+</body>

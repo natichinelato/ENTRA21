@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        p.dotted {outline-style: dotted;}
+        body{
+            background-color: rgb(243, 243, 243);
+        }
+        .btsalvar {
+            color:rgb(255, 255, 255);
+            background-color:rgb(2, 2, 2);
+            width: 200px;
+            font-size:20px;
+            margin: 20px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            
+
+        }
+        .btcancelar {
+            color:rgb(255, 255, 255);
+            background-color:rgb(0, 0, 0);
+            width: 200px;
+            font-size:20px;
+            margin: 20px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+       
+            .div1{
+                background-color: rgb(218, 212, 212);
+                width: 500px;
+                margin: auto;
+                padding:40px;
+                border: 1px solid rebeccapurple;
+                padding-bottom: 0px;
+            font-size:18px;
+            text-align: left;
+            border-radius: 100px;
+            border:5px solid black
+            
+                    }
+            legend{
+                text-align: center;
+                font-size: 30px;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+            }
+            input{
+                font-size:15px;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                width: 400px;
+
+            }
+            #sexo{
+                width: 20px;
+
+            }
+            p{
+                text-align: center;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            label{
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+           
+        button{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            }
+            img{
+                border-radius: 100px;
+                width:AUTO;
+                align-items: center;
+                            }
+          select    {
+              font-size: 20px;
+              font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          }
+
+    </style>
+</head>
+<body>
+    <div class="div1">
+       <fieldset>
+        <legend>Dados Pessoais</legend>
+        <hr>
+        <img src="https://th.bing.com/th/id/OIP.gFDZrpV2-saZhacKXz_nNAHaE7?pid=ImgDet&rs=1">
+        <p>Foto de perfil</p>
+        <label> Anexe uma foto:</label>
+    <button class="foto" onclick="Salvar()">Anexar foto</button>
+        <hr>
+       
+    
+    <label> Nome:</label><br>
+    <input id="nome" type="text" placeholder="Informe o nome" /> <br>
+    <label> Sobrenome:</label> <br>
+    <input id="sobre" type="tex" placeholder="Informe o sobrenome" /> <br>
+    <label> Idade:</label><br>
+    <input id="idade" type="tex" placeholder="Informe sua idade" /> <br>
+    <label> Data de Nascimento:</label><br>
+    <input id="dianasc" type="number" placeholder="Informe a data de nascimento" /> <br>
+    
+    <label> Sexo:</label> 
+    <input onclick="verificar()" type="checkbox" id="sexo">Feminino</input>
+    <input onclick="verificar()" type="checkbox" id="sexo">Masculino</input> 
+    <br>
+    
+</fieldset>
+<fieldset>
+    <legend>Dados de Contato</legend>
+        <hr>
+    <label> Telefone:</label><br>
+    <input id="telefone" type="number" placeholder="Informe o telefone" /> <br>
+    <label> Email:</label><br>
+    <input id="email" type="text" placeholder="Informe o email" />
+     <br>
+</fieldset>
+    <fieldset>
+        <legend>Dados de Endereço</legend>
+        <hr>
+        <label> Rua:</label><br>
+    <input id="rua" type="number" placeholder="Informe sua rua" /> <br>
+    <label> Número:</label><br>
+    <input id="número" type="number" placeholder="Informe o número" /> <br>
+    <label> Bairro:</label><br>
+    <input id="bairro" type="text" placeholder="Informe o bairro" /> <br>
+    <label> CEP:</label><br>
+    <input id="CEP" type="number" placeholder="Informe o CEP" /> 
+    <select>
+        <option>SP</option>
+        <option>SC</option>
+        <option>RJ</option>
+        <option>MG</option>
+        <option>MT</option>
+        <option>RS</option>
+        <option>PR</option>
+    </select>
+
+</fieldset>
+
+
+
+<br>
+    <button class="btsalvar" onclick="Salvar()">Salvar</button>
+    <button class="btcancelar" onclick="Cancelar()">Cancelar</button>
+    
+    <p id="resultado"></p>
+    
+</div>
+     
+</body>
+</html>

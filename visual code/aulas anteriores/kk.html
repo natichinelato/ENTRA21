@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="nome" type="text" placeholder="digite seu nome" /> <br>
+    <input id="n1" type="number" placeholder="sua nota 1" /> <br>
+    <input id="n2" type="number" placeholder="sua nota 2" /> <br>
+    <input id="n3" type="number" placeholder="sua nota 3" /> <br>
+   
+ 
+    <button onclick="calcular()">Calcular</button>
+    <hr>
+    <p id="resultado"></p>
+    <script>
+        function calcular(){
+           var nome = document.getElementById("nome").value
+           var n1 = document.getElementById("n1").value
+           var n2 = document.getElementById("n2").value
+           var n3 = document.getElementById("n3").value
+ 
+          
+
+           if (nome ==''){
+                alert("Campo em branco")
+                document.getElementById("nome").focus()
+                return
+                          }
+            if (n1 ==''){
+                alert("Campo em branco")
+                document.getElementById("n1").focus()
+                return
+            }
+            else{
+                n1=parseFloat(n1)
+                if(n1 > 10){
+                alert("Número tem que ser menor que 10")
+                document.getElementById("n1").focus()
+                return
+                }
+                if(n1 <0 ){
+                alert("Número tem que ser maior que 10")
+                document.getElementById("n1").focus()
+                return
+                }
+            }
+            
+              
+            if (n2 ==''){
+                alert("Campo em branco")
+                document.getElementById("n2").focus()
+                return
+            }
+            else{
+                n2=parseFloat(n2)
+                if(n2 > 10){
+                alert("Número tem que ser menor que 10")
+                document.getElementById("n2").focus()
+                return
+                }
+                if(n2 <0 ){
+                alert("Número tem que ser maior que 10")
+                document.getElementById("n2").focus()
+                return
+                }
+            }
+
+            if (n3 ==''){
+                alert("Campo em branco")
+                document.getElementById("n3").focus()
+                return
+             }
+             else{
+                n3=parseFloat(n3)
+                if(n3 > 10){
+                alert("Número tem que ser menor que 10")
+                document.getElementById("n3").focus()
+                return
+                }
+                if(n3 <0 ){
+                alert("Número tem que ser maior que 10")
+                document.getElementById("n3").focus()
+                return
+                }
+            }
+            var media = (n1+n2+n3)/3
+           if(media>=7){
+            document.getElementById("resultado").innerHTML = `Sua media é de ${media.toFixed(2)} voce esta aprovado `
+ 
+           }
+           
+         else{
+        
+        document.getElementById("resultado").innerHTML = `Sua media é de ${media.toFixed(2)} voce esta reprovado `
+     
+}
+           
+}
+  </script>              
+</body>
+</html>

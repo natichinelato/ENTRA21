@@ -1,0 +1,20 @@
+{
+    "venda":{
+        "cliente":{
+            "id":1,
+            "nome": "fefe"
+        },
+          "produtos":[
+              {
+                  
+           "nome":"carro",
+           "modelo":"kkkk"
+           
+            }
+          ]
+
+        }
+                               
+    }         
+        
+    

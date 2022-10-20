@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+
+    <script>
+        function pesquisar(){
+            var idpesquisar = document.getElementById("idcliente").value 
+            fetch(`http://localhost:3000/clientes/${idpesquisar}`)
+            .then(data => data.json())
+            .then(result => alterar(result))
+        
+
+            function alterar(result){
+                clientes = []
+                clientes = result
+                document.getElementById("nome").value = `${clientes.id}`
+                document.getElementById("nome").value = `${clientes.nome}`
+                document.getElementById("email").value = `${clientes.email}`
+                document.getElementById("fone").value = `${clientes.fone}`
+            }
+        }
+
+
+             function mudar(callback){
+                var idpesquisar = document.getElementById("id").value 
+                const cliente ={
+                nome: "",
+                email: "",
+                fone:""
+            }
+                cliente.nome = document.getElementById("nome").value
+                cliente.email = document.getElementById("email").value
+                cliente.fone = document.getElementById("fone").value
+
+                const options= {
+                    method: 'PUT',
+                    headers: {'Content-type':'Application/json'},
+                    body: JSON.stringify(cliente)
+
+                }
+                fetch(`http://localhost:3000/clientes/${idpesquisar}`, options)
+                .then(data => data.json())
+                callback()
+        }
+        function limpar(){
+            document.getElementById("nome").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("fone").value = ""
+        }
+                    
+</script>
+</body>
+</html>

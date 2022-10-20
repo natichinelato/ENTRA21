@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="carregar()">Pesquisar</button>
+    <hr/>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Fone</th>
+            </tr>
+        </thead>
+        <tbody id="dados"></tbody>
+        <script>
+            function carregar(){
+                fetch("http://localhost:3000/clientes")
+                .then(x=> x.json())
+                .then(y=> display(y))
+            }
+            function display(dados){
+                clientes =[]
+                clientes= (dados)
+                var linhas = ""
+                for(let i=0; i < clientes.length; i++){
+                linhas += 
+                    `<tr><td>${clientes[i].id}</td>
+                    <td>${clientes[i].nome}</td>
+                    <td>${clientes[i].email}</td>
+                    <td>${clientes[i].fone}</td></tr>`
+            }
+            document.getElementById("dados").innerHTML = linhas;
+            }
+
+
+        </script>
+</body>
+</html>

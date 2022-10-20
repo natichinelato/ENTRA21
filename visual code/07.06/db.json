@@ -1,0 +1,59 @@
+{
+  "clientes": [
+    {
+      "nome": "UGHJK",
+      "email": "HJK,",
+      "fone": "4122452",
+      "id": 1
+    },
+    {
+      "nome": "natalia",
+      "email": "nati@chata",
+      "fone": "123456",
+      "id": 2
+    },
+    {
+      "nome": "hjk",
+      "email": "kkkk",
+      "fone": "4",
+      "id": 3
+    },
+    {
+      "nome": "xsg",
+      "email": "fgh",
+      "fone": "fgh",
+      "id": 4
+    },
+    {
+      "nome": "ty",
+      "email": "ty",
+      "fone": "t",
+      "id": 5
+    },
+    {
+      "nome": "",
+      "email": "",
+      "fone": "",
+      "id": 6
+    },
+    {
+      "nome": "",
+      "email": "",
+      "fone": "",
+      "id": 7
+    },
+    {
+      "nome": "",
+      "email": "",
+      "fone": "",
+      "id": 8
+    },
+    {
+      "nome": "YUK",
+      "email": "YUK",
+      "fone": "YUK",
+      "id": 9
+    }
+  ],
+  "produtos": []
+}

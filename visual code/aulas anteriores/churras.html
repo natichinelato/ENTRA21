@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="pessoas" type="number" placeholder="Quantas pessoas?" /> <br>
+    <input id="qtd" type="number" placeholder="Quantas gramas p/ pessoa?" /> <br>
+    <input id="tipo" type="text" placeholder="Qual o tipo de carne?" /> <br>
+    <input id="preço" type="number" placeholder="Qual o valor da carne?" /> <br>
+
+    
+    <button onclick="calcular()">Calcular</button>
+    <hr>
+    <p id="resultado"></p>
+    <script>
+        function calcular(){
+           var pessoas = document.getElementById("pessoas").value
+           var qtd = document.getElementById("qtd").value
+           var tipo = document.getElementById("tipo").value
+           var preço = document.getElementById("preço").value
+           var kgtotal = (pessoas*qtd)/1000
+           var preçototal= kgtotal*preço
+
+
+           if (pessoas ==''){
+                alert("Campo em branco")
+                document.getElementById("pessoas").focus()
+                return
+             } 
+            else{
+                pessoas=parseFloat(pessoas)
+              
+              }  
+            if (qtd ==''){
+                alert("Campo em branco")
+                document.getElementById("qtd").focus()
+                return
+            }
+            else{
+                qtd=parseFloat(qtd)
+            }
+                if(tipo ==''){
+                alert("Campo em branco")
+                document.getElementById("tipo").focus()
+                return
+             }
+                if (preço ==''){
+                alert("Campo em branco")
+                document.getElementById("preço").focus()
+                return
+            }
+            else{
+                preço=parseFloat(preço)
+            }
+
+           var taxa = 20
+           var preco1 = preçototal* (taxa/100)
+            
+          
+           if(pessoas > 10){
+            document.getElementById("resultado").innerHTML = `A quantidade a ser comprada de ${tipo} é ${kgtotal} kg e o total é ${preçototal} reais e a taxa para o assador é ${preco1}`
+         
+           }
+           else{
+            document.getElementById("resultado").innerHTML = `A quantidade a ser comprada de ${tipo} é ${kgtotal} kg e o total é ${preçototal}`
+           }
+                    
+           }
+    </script>
+</body>
+</html>

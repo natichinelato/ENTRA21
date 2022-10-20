@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mostrador{
+            background-color: cadetblue;
+            height: 100px;
+            display: flex;
+            align-items: center;
+                        
+        }
+             iframe{
+            width: 100vw;
+            
+            background-color: burlywood;
+        }
+        h1{
+            display: flex;
+            align-items: center;
+
+        }
+    </style>
+</head>
+<body>
+    <h1> Consulta clientes</h1>
+        <nav class="mostrador">
+                <a href="menu.html" target="centro">Home</a>
+                <a href="clientes.html" target="centro">Cadastro</a>
+                <a href="produtos.html" target="centro">Produtos</a>
+                <button id="bt">Login</button>
+                <label id="userconectado"></label>
+            
+        </nav>
+        <iframe src="menu.html" name="centro"></iframe>
+       
+    <script>
+    if(localStorage.getItem("usuariologado") != null){
+            document.getElementById("userconectado").innerHTML = localStorage.getItem("usuariologado")
+       
+            document.getElementById("bt").innerHTML = "Logout"
+            document.getElementById("bt").addEventListener("click", logout)
+            showitens("inline-block") 
+        }else{
+            showitens("none") 
+            document.getElementById("bt").addEventListener("click", login)
+        }
+        function login(){
+            document.getElementsByTagName("iframe")[0].src="login.html"
+        }
+        function logout(){
+            localStorage.removeItem("usuariologado")
+            window.location.reload()
+        }
+        function showitens(mostrar){
+            document.getElementsByTagName("a")[1].style = `display:${mostrar}`
+            document.getElementsByTagName("a")[2].style = `display:${mostrar}`
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 400px;
+        margin: auto;
+        padding: 30px;
+        background-color: coral;
+        border-radius: 10px;
+                   
+    }
+    input{
+        width: 100%;
+    }
+    h1{
+        display: auto;
+        align-items: center;
+        font-style: italic;
+        text-shadow: 0 0 6px black;
+    }
+    label{
+        font-style: italic;
+    }
+    button{
+        height: 30px;
+        width:100px;
+    background-color: black;
+    font-style: italic;
+    color: white;
+    border-radius: 10px;
+
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Cadastro do Cliente</h1>
+        <label for="nome">Nome: </label>
+        <input type="text" id="nome" placeholder="Informe nome"/>
+
+        <label for="nome">Email: </label>
+        <input type="text" id="email" placeholder="Informe email"/>
+
+        <label for="nome">Fone: </label>
+        <input type="text" id="fone" placeholder="Informe fone"/>
+        
+
+        <div>
+            <button onclick="salvar(limpar)">Salvar</button>
+            <button>Cancelar</button>
+
+        </DIV>
+
+
+    </div>
+    <script>
+        function salvar(callback){
+            const cliente ={
+                nome: "",
+                email: "",
+                fone:""
+            }
+                cliente.nome = document.getElementById("nome").value
+                cliente.email = document.getElementById("email").value
+                cliente.fone = document.getElementById("fone").value
+
+                const options= {
+                    method: 'POST',
+                    headers: {'Content-type':'Application/json'},
+                    body: JSON.stringify(cliente)
+
+                }
+                fetch("http://localhost:3000/clientes", options)
+                .then(data => data.json())
+                .then(cli => console.log(cli))
+                callback()
+        }
+        function limpar(){
+            document.getElementById("nome").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("fone").value = ""
+        }
+                
+    </script>
+</body>
+</html>

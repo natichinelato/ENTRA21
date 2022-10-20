@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+   
+    <label>Qual data de nascimento? </label>
+    <input type="date" id="data" />
+    <button onclick="signo()">Salvar</button>
+    <label id="resultado"></label>
+    
+
+    <script>
+        
+    function signo(){ 
+       var data= new Date(document.getElementById("data").value)
+       var dia=data.getDate()+1
+        var mes=data.getMonth()+1
+        var msg = ""
+
+        if((dia>20 & mes == 1) || (dia <19 & mes== 2)){
+        msg="aquario"
+        }       
+       else if((dia>18 & mes == 2) || (dia <21 & mes== 3)){
+        msg="peixes"
+        }    
+        else if((dia>20 & mes == 3) || (dia <21 & mes== 4)){
+        msg="aries"
+        }    
+        else if((dia>20 & mes == 4) || (dia <21 & mes== 5)){
+        msg="touro"
+        }    
+        else if((dia>20 & mes == 5) || (dia <21 & mes== 6)){
+        msg="gemeos"
+        }    
+        else if((dia>20 & mes == 6) || (dia <23 & mes== 7)){
+        msg="cancer"
+        }    
+        else if((dia>22 & mes == 7) || (dia <23 & mes== 8)){
+        msg="leão"
+        }    
+        else if((dia>22 & mes == 8) || (dia <23 & mes== 9)){
+        msg="virgem"
+        }   
+        else if((dia>22 & mes == 9) || (dia <23 & mes== 10)){
+        msg="libra"
+        }  
+        else if((dia>22 & mes == 10) || (dia <22 & mes== 11)){
+        msg="escorpião"
+        }  
+        else if((dia>21 & mes == 11) || (dia <22 & mes== 12)){
+        msg="sagitario"
+        }   
+        else if((dia>21 & mes == 12) || (dia <21 & mes== 1)){
+        msg="capricornio"
+        }  
+      document.getElementById("resultado").innerHTML = `Signo: ${msg}`
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="numero" type="number" placeholder="Informe um número" /> <br>
+       
+    <button onclick="calcular()">Calcular</button>
+    
+    <hr>
+    <p id="resultado"></p>
+   
+    <script>
+        function calcular(){
+            var numero=parseFloat(document.getElementById("numero").value)
+            var resultado=0
+            
+                  
+            for(var i= 0; i <= numero;i++){
+            resultado += i
+               
+            }
+
+            document.getElementById("resultado").innerHTML = `A soma dos antecessores é: ${resultado}`
+           
+        }
+            </script>
+</body>
+</html>

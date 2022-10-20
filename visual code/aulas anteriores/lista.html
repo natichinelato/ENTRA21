@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(218, 233, 195);
+            margin: 0px;
+        }
+
+        .dropdown {
+            display: inline-block;
+            margin-left: 0px;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgb(144, 184, 108);
+            /* padding: 5px; */
+
+        }
+        
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        .mostrador {
+            display: flex;
+            background-color: rgb(144, 184, 108);
+            align-items: center;
+            height: 30px;
+
+        }
+
+        a {
+            list-style: none;
+            font-size: 18px;
+            height: 30px;
+            height: 40px;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+
+
+        button {
+            display: flex;
+            font-size: 15px;
+            border-color: rgb(126, 163, 83);
+            background-color: rgb(234, 236, 231);
+            border-radius: 100px;
+            width:130px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            align-items: center;
+        }
+
+        i {
+            vertical-align: middle;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="mostrador">
+        <div class="dropdown">
+            <button><i class="material-icons" style="font-size:20px;color:rgb(110, 185, 110)">list</i> Cadastro</button>
+
+            <div class="dropdown-content">
+
+
+                <a href="#"><i class="material-icons"
+                        style="font-size:20px;color:rgb(236, 240, 231)">edit</i>Cliente</a><br>
+                <a href="#"><i class="material-icons"
+                        style="font-size:20px;color:rgb(236, 240, 231)">edit</i>Produto</a><br>
+                <a href="#"><i class="material-icons"
+                        style="font-size:20px;color:rgb(236, 240, 231)">edit</i>Categoria</a><br>
+
+            </div>
+        </div>
+        <div class="dropdown">
+            <button><i class="material-icons" style="font-size:20px;color: rgb(110, 185, 110)">list</i>
+                Consultas</button>
+
+            <div class="dropdown-content">
+
+                <a href="#"><i class="material-icons"
+                        style="font-size:20px;color:rgb(236, 240, 231)">edit</i>Cliente</a><br>
+                <a href="#"><i class="material-icons"
+                        style="font-size:20px;color:rgb(236, 240, 231)">edit</i>Produto</a><br>
+                <a href="#"><i class="material-icons"
+                        style="font-size:20px;color:rgb(236, 240, 231)">edit</i>Categoria</a><br>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

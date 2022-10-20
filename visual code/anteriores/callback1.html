@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Digite uma fruta: </label>
+    <input type="text" id="fruta" placeholder="Digite uma fruta"/>
+    <button onclick="comomostrar()">Inserir</button>
+    
+    <input id="showlinha" type="checkbox">Lista? </input>
+    
+
+    <div id="dados">
+
+    </div>
+    <script>
+        var frutas = []
+        function comomostrar(){
+                if(document.getElementById("showlinha").checked)
+                add(mostraremlinha)
+                else
+                add(mostraremparagrafo)
+
+            }
+
+        function add(callback){
+            var x = document.getElementById("fruta")
+            if(x.value ==""){
+                alert("informe fruta")
+                x.focus()
+                return
+            }
+            frutas.push(x.value)
+            x.value=""
+            x.focus()
+            callback()
+        }
+
+           
+            function mostraremlinha(){
+                var linha = '<ol>'
+                    for(let i=0; i < frutas.length; i++){
+                        linha += `<li>${frutas[i]}</li>`
+                    }
+                    linha +='</ol>'
+                    document.getElementById("dados").innerHTML = linha;
+            }
+
+            function mostraremparagrafo(){
+                 var linha = ''
+                    for(let i=0; i < frutas.length; i++){
+                        linha += `<p>${frutas[i]}</p>`
+                    }
+                    
+                    document.getElementById("dados").innerHTML = linha;
+            }
+
+            
+    </script>
+</body>
+</html>

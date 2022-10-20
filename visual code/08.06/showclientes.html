@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <label>Digite um código cliente</label>
+    <input type="number" id="idcliente">
+    <button onclick="pesquisar()">pesquisar</button>
+    <hr>
+    <label id="resultado"></label>
+
+    <script>
+        function pesquisar(){
+            var idpesquisar = document.getElementById("idcliente").value 
+            fetch(`http://localhost:3000/clientes/${idpesquisar}`)
+            .then(data => data.text())
+            .then(result => document.getElementById("resultado").innerHTML = result)
+        }
+
+    </script>
+</body>
+</html>

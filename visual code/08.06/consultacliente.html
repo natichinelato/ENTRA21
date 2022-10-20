@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="pesquisar()">
+    <h1>Lista Clientes</h1>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Fone</th>
+                <th>Excluir</th>
+                <th>Editar</th>
+                
+            </tr>
+            <input id="id">
+            <label>Nome:</label>
+           <input id="nome">
+           <label>Email:</label>
+           <input id="email">
+           <label>Fone:</label>
+           <input id="fone">
+           <button onclick="salvaralterar()">Salvar Alteração</button>
+        </thead>
+        <tbody > 
+        </tbody>
+        
+    </table>
+    
+    <script>
+        function pesquisar(){
+            fetch('http://localhost:3000/clientes')
+            .then(data => data.json())
+            .then(lista => {
+                var linha = ""
+                for(let i=0; i< lista.length; i++){
+                linha += '<tr>'
+                linha += `<td> ${lista[i].id}</td>`
+                linha += `<td> ${lista[i].nome}</td>`
+                linha += `<td> ${lista[i].email}</td>`
+                linha += `<td> ${lista[i].fone}</td>`
+                linha += `<td> <button onclick=excluir(${lista[i].id})>Excluir</button> </td>`
+                linha += `<td> <button onclick=alterar(${lista[i].id})>Alterar</button> </td>`
+                linha += '<tr>'   
+            }
+            document.getElementsByTagName("tbody")[0].innerHTML = linha
+        })
+
+        }
+        function excluir(idcliente){
+            var idpesquisar =  idcliente
+                                
+                fetch(`http://localhost:3000/clientes/${idpesquisar}`, {method: 'DELETE'})
+                .then(data => data.json())
+                
+        }  
+        function alterar(mostrar){
+            var idpesquisar = mostrar
+            fetch(`http://localhost:3000/clientes/${idpesquisar}`)
+            .then(data => data.json())
+            .then(result => alter(result))
+        
+
+            function alter(result){
+                clientes = []
+                clientes = result
+             
+                document.getElementById("id").value = `${clientes.id}`
+                document.getElementById("nome").value = `${clientes.nome}`
+                document.getElementById("email").value = `${clientes.email}`
+                document.getElementById("fone").value = `${clientes.fone}`
+            }
+        }
+        function salvaralterar(){
+            var idpesquisar = document.getElementById("id").value 
+            const cliente ={
+                nome: "",
+                email: "",
+                fone:""
+            }
+                cliente.nome = document.getElementById("nome").value
+                cliente.email = document.getElementById("email").value
+                cliente.fone = document.getElementById("fone").value
+
+                const options= {
+                    method: 'PUT',
+                    headers: {'Content-type':'Application/json'},
+                    body: JSON.stringify(cliente)
+
+                }
+                fetch(`http://localhost:3000/clientes/${idpesquisar}`, options)
+                .then(data => data.json())
+                
+        }
+
+
+              
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="nome" type="text" placeholder="informe o nome" /> <br>
+    <input id="anoNasc" type="number" placeholder="informe o ano de nascimento" /> <br>
+    <input id="mesNasc" type="number" placeholder="informe o mes de nascimento" /> <br>
+    <input id="diaNasc" type="number" placeholder="informe o dia de nascimento" /> <br>
+ 
+    <button onclick="calcular()">Calcular</button>
+   
+    <script>
+        function calcular(){
+           var nome = document.getElementById("nome").value
+           var anoNascimento = document.getElementById("anoNasc").value
+           var mesNascimento = document.getElementById("mesNasc").value
+           var diaNascimento = document.getElementById("diaNasc").value
+ 
+           /*pegar datas do sistema*/
+           var data = new Date();
+           var anoAtual = data.getFullYear()
+           var mesAtual = data.getMonth()+1 // 0 1 2 3 .. 11
+           var diaAtual = data.getDate()
+ 
+           var idade = anoAtual - anoNascimento
+ 
+           if (nome ==''){
+                alert("Campo em branco")
+                document.getElementById("nome").focus()
+                return
+           }
+           if (anoNascimento ==''){
+                alert("Campo em branco")
+                document.getElementById("anoNascimento").focus()
+                return
+           }
+           if (mesNascimento ==''){
+                alert("Campo em branco")
+                document.getElementById("mesNascimento").focus()
+                return
+           }
+           if (diaNascimento ==''){
+                alert("Campo em branco")
+                document.getElementById("diaNascimento").focus()
+                return
+           }
+
+            if(mesAtual < mesNascimento){ 
+                idade--              
+            }
+ 
+           
+            if(mesAtual == mesNascimento){
+                if(diaAtual < diaNascimento)
+                  idade--
+            }
+           
+        }
+    </script>
+</body>
+</html>

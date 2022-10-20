@@ -1,0 +1,48 @@
+{
+    "vendas": [
+        {
+            "id": 1,
+            "data": "10/05/2022",
+            "cliente": {
+                "id": 1,
+                "nome": "nati",
+                "email": "kjsdasd"
+            },
+            "itens": [
+                {
+                    "id": 1,
+                    "descrição": "pão",
+                    "qtd": 15,
+                    "preço": 150
+                },
+                {
+                    "id": 2,
+                    "descrição": "ovo",
+                    "qtd": 5,
+                    "preço": 15
+                }
+            ]
+        },
+        {
+            "cliente": {
+                "id": 2,
+                "nome": "jose",
+                "email": "kjsdasd"
+            },
+            "itens": [
+                {
+                    "id": 1,
+                    "descrição": "pão",
+                    "qtd": 15,
+                    "preço": 150
+                },
+                {
+                    "id": 2,
+                    "descrição": "cadeira",
+                    "qtd": 8,
+                    "preço": 6
+                }
+            ]
+        }
+    ]
+}

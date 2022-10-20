@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="valor" type="number" placeholder="Qual o valor de empréstimo" /> <br>
+    <input id="taxa" type="number" placeholder="Qual a taxa de juros" /> <br>
+    <input id="parcela" type="number" placeholder="Quantidade de parcela" /> <br>
+       
+    <button onclick="calcular()">Calcular</button>
+    
+    <hr>
+    <p id="resultado"></p>
+   
+    <script>
+        function calcular(){
+            var valor=parseFloat(document.getElementById("valor").value)
+            var taxa=parseFloat(document.getElementById("taxa").value)
+            var parcela=parseFloat(document.getElementById("parcela").value)
+            
+            
+            taxa = (taxa/100)
+            jurostotais= (valor*taxa)
+            valortotal = (valor*taxa) + valor
+            parcelatotal = valortotal/parcela
+            
+            while(parcela>0){
+                jurostotais= (valor*taxa)
+                parcela--
+            }
+                            
+               document.getElementById("resultado").innerHTML = `O valor total é de ${valortotal}, os juros totais são ${jurostotais} e o valor da parcela é ${parcelatotal}`
+            }
+
+</script>
+</body>
+</html>
